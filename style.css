@@ -13,7 +13,7 @@ main{
     flex-direction: column;
     width: 50vw;
     height: 100vh;
-    background-color:yellow;
+    background-color:rgb(255, 208, 0);
 }
 header{
     display: flex;
@@ -26,7 +26,7 @@ header{
 h1{
     font-size: 35px; 
     background-color: white;
-    color: yellow;
+    color: rgb(255, 208, 0);
 }
 
 h2{
@@ -64,7 +64,7 @@ h4{
 .textBox{
     height: 38px;
     border: solid 1.5px;
-    margin-bottom: 30px;
+    margin-bottom: 2px;
 }
 
 .btn{
@@ -73,6 +73,13 @@ h4{
     font-size: 1.4em;
     background-color: rgba(26, 6, 6, 0.61);
     color: white;
+}
+
+#userMessage {
+    margin-top: 0px;
+    margin-bottom: 0px;
+    margin-left: 0px;
+    margin-right: 0px;
 }
 /*********************************************************************************************************************/
 .three{

@@ -3,45 +3,53 @@ const classTwo = document.querySelector('.two');
 const classThree = document.querySelector('.three');
 const textBox = document.querySelector('.textBox');
 const textBox_2 = document.querySelector('.errorMessage');
+const userMessage = document.getElementById("userMessage");
 const btn = document.querySelector('.btn');
 const btn_2 = document.querySelector('.btn-2');
 
 btn.addEventListener("click",function() {
-    if(ValidateInput())
-        if(CheckCreditCard())
+    if(validateInput())
+        if(checkCard())
             alert("Correct number");
         else
-            ErrorScreen();    
+            errorScreen();    
 })
 
 btn_2.addEventListener("click",function() {
-    ReturnHomeScreen();
+    returnHomeScreen();
 })
 //return true if numbers digit by user don't have errors otherwise return false.
-function ValidateInput () {
- let data = textBox.value;
- let caracters = data.split("");
- let flag = true;
-    //if textBox is empty throw alert
-    if(data === ""){
-        flag = false;
-        alert("Input is empty");
-    }else{//if not check that every char is a number
-        for (let index = 0; index < caracters.length; index++) {
-            if(isNaN(caracters[index])){
-                
-                //set TextBox empty
-                textBox.value = "";
-                alert("Input is not a number");
-                flag = false;
-                break;
+function validateInput () {
+    let data = textBox.value;
+    let caracters = data.split("");
+    let flag = true;
+    let message = "";
+    let colorMessage = "";
+       //if textBox is empty throw alert
+       if(data === ""){
+           flag = false;
+           colorMessage = "red";
+           message = "Input is empty";
+       }
+       else{//if not check that every char is a number
+            for (let index = 0; index < caracters.length; index++) {
+                if(isNaN(caracters[index])) {
+                    
+                    //set TextBox empty
+                    textBox.value = "";
+                    message = "Input is not a number";
+                    colorMessage = "red";
+                    flag = false;
+                    break;
+                }
             }
         }
-    }
-    return flag;      
+    userMessage.style.color = colorMessage;
+    userMessage.innerHTML = message;
+    return flag;     
 }
 //LuhnAlgorithm
-function CheckCreditCard() {
+function checkCard() {
  let cardNum = textBox.value;
  let arrayOne = [];
  let arrayTwo;
@@ -79,7 +87,7 @@ else
     return false;
 }
 
-function ErrorScreen () {
+function errorScreen () {
  let array;
  let str;
  classOne.style.display = "none";//change css property
@@ -96,7 +104,7 @@ function ErrorScreen () {
  //use innerHtml to change the text in a tag h#
 }
 
-function ReturnHomeScreen () {
+function returnHomeScreen () {
     classOne.style.display = "flex";//change css property
     classTwo.style.display = "flex";
     classThree.style.display = "none";
