@@ -1,3 +1,5 @@
+//import myFunction, {checkCard} from './LuhnAlgorithm.js';
+/////////////////////////
 const classOne = document.querySelector('.one');
 const classTwo = document.querySelector('.two');
 const classThree = document.querySelector('.three');
@@ -8,9 +10,13 @@ const btn = document.querySelector('.btn');
 const btn_2 = document.querySelector('.btn-2');
 
 btn.addEventListener("click",function() {
+    let colorMessage = "green";
+    let message = "Yours credit card is valid"
     if(validateInput())
-        if(checkCard())
-            alert("Correct number");
+        if(checkCard(textBox.value)){
+           userMessage.style.color = colorMessage;
+           userMessage.innerHTML = message;
+        }
         else
             errorScreen();    
 })
@@ -48,44 +54,7 @@ function validateInput () {
     userMessage.innerHTML = message;
     return flag;     
 }
-//LuhnAlgorithm
-function checkCard() {
- let cardNum = textBox.value;
- let arrayOne = [];
- let arrayTwo;
- let splitCardNum = cardNum.split("");
- let totalSum = 0;
- let digits = [];
- let arrayThree;
-//parse every string to number
-for (let index = 0; index < splitCardNum.length; index++) {
-    digits[index] = parseInt(splitCardNum[index]);//containing cardNum as a number
 
-    if(index % 2 === 0){
-        arrayOne[0] = digits[index] *= 2;//multiply by two every second digit
-
-        if(arrayOne[0] > 9){
-            arrayTwo = arrayOne[0].toString().split("");
-            arrayTwo[0] = parseInt(arrayTwo[0]);
-            arrayTwo[1] = parseInt(arrayTwo[1]);
-            digits[index] = arrayTwo[0] + arrayTwo[1];
-        }
-    }
-}
-
-for (let index = 0; index < digits.length; index++){
-    digits[index] = parseInt(digits[index]);
-    //console.log("valor: " + digits[index] + " posicion: " + index);
-    totalSum = totalSum + digits[index];
-}
-
-arrayThree = totalSum.toString().split("");
-
-if(arrayThree[1] === '0')
-    return true;
-else
-    return false;
-}
 
 function errorScreen () {
  let array;
@@ -110,7 +79,80 @@ function returnHomeScreen () {
     classThree.style.display = "none";
     textBox.value = "";
 }
+/////////////////////////////////////////////////////////////////////////////////////////////////
 
+//const cardNum = "3625102593804";//"4137894711755904","3625102593804"
+//let str_2 = "split digit";
 
-
+function checkCard (creditCard) {
+    let splitCreditCard;
+    let reversed;
+    let multipliedAdded = 0;
+    let isCreditCard = false;
+ 
+    splitCreditCard = splitNum(creditCard);
+ 
+    if(splitCreditCard !== "is Not a number") {
+       reversed = reverseNum(splitCreditCard);
+       multipliedAdded = multiplyAddSecondDigit(reversed);
+    }
+       if((multipliedAdded % 10) === 0)
+          isCreditCard = true;
+    return isCreditCard;
+ }
+ //console.log(str_2,checkCard(cardNum));
+ 
+ function splitNum(card) {
+     let num = "";
+ 
+     if(!(isNaN(card)))
+        num = card.split("");
+     else
+        num = "is Not a number";
+     return num;
+ }
+ 
+ function reverseNum(card) {
+     let num = [];
+     num = card.reverse();
+     return num;
+ }
+ 
+ function multiplyAddSecondDigit(card) {
+    let num = [];
+    let total = 0;
+    num = card;
+    
+    for (let index = 0; index < num.length; index++) {
+        num[index] = parseToInteger(num[index]);
+ 
+        if(((index + 1) % 2) === 0)
+           num[index] = num[index] * 2;
+           num[index] = addSecond(num[index]);
+           total += num[index];
+          // console.log('addSecond: ',num[index]);
+    }
+     return total;
+ }
+ 
+ function addSecond(card){
+    let num ;
+    let total = 0;
+    num = parseToString(card).split("");
+ 
+    for (let index = 0; index < num.length; index++) {
+       num[index] = parseToInteger(num[index]);
+       total += num[index];
+    }
+    return total;
+  }
+ 
+ function parseToInteger (str) {
+     return parseInt(str);
+ }
+ 
+ function parseToString (integer) {
+    return integer.toString();
+ }
+ 
 
