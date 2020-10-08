@@ -1,73 +1,74 @@
-*{
+* {
     padding: 0px;
     margin: 0px;
     box-sizing: border-box;
 }
-main{
+
+main {
     display: flex;
 }
-/*************************************************************************************************+*/
-.one{   
-    display: flex;/*Switch to flex*/
-    justify-content: center;/*Align items of the flex box also need align-items: ;*/
+
+.one {
+    display: flex;
+    justify-content: center;
     flex-direction: column;
     width: 50vw;
     height: 100vh;
-    background-color:rgb(255, 208, 0);
-}
-header{
-    display: flex;
-    justify-content: center; /*Align in the middle(vertical)*/
-    align-items: center;/*Align in the middle(vertical)*/
-    text-align: center;
-    margin-bottom:40vh;
+    background-color: rgb(255, 208, 0);
 }
 
-h1{
-    font-size: 35px; 
+header {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    margin-bottom: 40vh;
+}
+
+h1 {
+    font-size: 35px;
     background-color: white;
     color: rgb(255, 208, 0);
 }
 
-h2{
+h2 {
     font-size: 1.2em;
 }
 
-h3{
+h3 {
     font-size: 1.5em;
-    text-align: center;/*align h# text*/
+    text-align: center;
     margin-bottom: 5vh;
 }
 
-p{
+p {
     text-align: center;
     margin-bottom: 20vh;
     margin-left: 30px;
     margin-right: 30px;
 }
 
-/****************************************************************************+*/
 .two {
-    display: flex;/*Switch to flex*/
+    display: flex;
     flex-direction: column;
-    justify-content: center;/*Align content */
-    align-items: center;/*Align content*/
+    justify-content: center;
+    align-items: center;
     width: 50vw;
     height: 100vh;
 }
 
-h4{
+h4 {
     text-align: center;
     margin-bottom: 30px;
 }
 
-.textBox{
+.textBox {
     height: 38px;
     border: solid 1.5px;
     margin-bottom: 2px;
 }
 
-.btn{
+.btn {
     width: 169px;
     height: 38px;
     font-size: 1.4em;
@@ -81,8 +82,8 @@ h4{
     margin-left: 0px;
     margin-right: 0px;
 }
-/*********************************************************************************************************************/
-.three{
+
+.three {
     display: none;
     flex-direction: column;
     justify-content: center;
@@ -90,14 +91,16 @@ h4{
     width: 100vw;
     height: 100vh;
 }
-img{
+
+img {
     margin-bottom: 50px;
 }
-h5{
+
+h5 {
     font-size: 1.2em;
 }
 
-.btn-2{
+.btn-2 {
     width: 180px;
     height: 38px;
     font-size: 1.4em;

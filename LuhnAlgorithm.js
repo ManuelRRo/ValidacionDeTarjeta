@@ -1,7 +1,7 @@
 //const cardNum = "3625102593804";//"4137894711755904","3625102593804"
 //let str_2 = "split digit";
 
-function checkCard (creditCard) {
+function checkCard (creditCard) {//export
    let splitCreditCard;
    let reversed;
    let multipliedAdded = 0;
@@ -72,4 +72,3 @@ function parseToString (integer) {
    return integer.toString();
 }
 
-export {checkCard as default};
