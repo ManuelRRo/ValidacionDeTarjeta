@@ -9,19 +9,30 @@ const btn_2 = document.querySelector('.btn-2');
 const image = document.querySelector('.message-img')
 
 textBox.addEventListener('keydown', function(e) {
+  addHyphen(e);
+});
+
+btn.addEventListener("click", function() {
+  validateCreditCard();
+});
+
+btn_2.addEventListener("click", function() {
+  returnHomeScreen();
+});
+
+function addHyphen(e){
   if (e.keyCode !== 8) {
     if ((textBox.value.length + 1) % 5 === 0 && textBox.value.length < 19) {
       textBox.value = textBox.value + "-";
     }
   }
-});
+}
 
 function removeHyphen(str) {
   return str.replaceAll("-", "");
 }
 
-btn.addEventListener("click", function() {
-  let colorMessage = "green";
+function validateCreditCard(){
   let message = "Your credit card is valid";
   let txtValue = removeHyphen(textBox.value);
   if (validateInput(txtValue))
@@ -32,12 +43,7 @@ btn.addEventListener("click", function() {
     }
   else
     errorScreen();
-});
-
-btn_2.addEventListener("click", function() {
-
-  returnHomeScreen();
-});
+}
 
 function validateInput(data) {
   //let data = removeHyphen(textBox.value);
@@ -73,7 +79,7 @@ function errorScreen() {
   classTwo.style.display = "none";
   classThree.style.display = "flex";
   array = textBox.value.split("");
-  image.setAttribute("src", "red-cross.png");
+  image.setAttribute("src", "./img/red-cross.png");
 
   for (let index = 0; index < array.length - 4; index++) {
     array.splice(index, 1, '#');
@@ -87,7 +93,7 @@ function rightScreen() {
   classOne.style.display = "none"; //change css property
   classTwo.style.display = "none";
   classThree.style.display = "flex";
-  image.setAttribute("src", "check.jpg");
+  image.setAttribute("src", "./img/check.jpg");
 }
 
 function returnHomeScreen() {
