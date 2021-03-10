@@ -2,58 +2,58 @@
 <html lang="en">
 
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Mini#3 Manuel Rico</title>
-    <link rel="stylesheet" href="style.css">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Mini#3 Manuel Rico</title>
+  <link rel="stylesheet" href="style.css">
 </head>
 
 <body>
-    <!--Comentario-->
-    <main>
+  <!--Comentario-->
+  <main>
 
-        <section class="one">
-            <!--Información agrupada,Utilizar herramienta adecuada-->
+    <section class="information-container">
+      <!--Información agrupada,Utilizar herramienta adecuada-->
 
-            <header>
-                <h1>W</h1>
-                <h2>Valida tu tarjeta de crédito. Rápido. Fácil. Seguro.</h2>
-            </header>
+      <header>
+        <h1>W</h1>
+        <h2>Validate your credit card. Fast. Easy. Safe.</h2>
+      </header>
 
-            <h3>WannaPay</h3>
+      <h3>WannaPay</h3>
 
-            <p>
-                Wannapay es una empresa internacional de verificación de tarjetas de crédito.
-                Ingresa los dígitos de tu tarjeta. validala e instantáneamente tienes acceso a miles
-                de sitios de compras por internet en todo el mundo.
-            </p>
+      <p>
+        Wannapay is a international enterprise of validating credit card.
+        Type your credit card digits. Validate now and have access to thousands of commercial webstore
+        arround the world.
+      </p>
 
-        </section>
+    </section>
 
-        <section class="two">
+    <section class="user-container">
 
-            <h4>Ingresa los dígitos de tu tarjeta de crédito</h4>
+      <h3>Type your credit card digits </h3>
 
-            <input class="textBox" type="text">
+      <input class="textBox" type="text" maxlength="19" size="16">
 
-            <p id="userMessage"></p>
+      <p class="userMsg" id="userMessage"></p>
 
-            <input class="btn" type="button" value="Verificar">
+      <button class="btn">CHECK</button>
 
-        </section>
+    </section>
 
-        <section class="three">
+    <section class="cardMessage-container">
 
-            <img src="red-cross.png" alt="gatp">
+      <img src="red-cross.png" alt="gatp" class="message-img">
 
-            <h5 class="errorMessage">error message</h5>
+      <h5 class="errorMessage">error message</h5>
 
-            <input class="btn-2" type="button" value="Intentar de nuevo">
+      <button class="btn-2">Try again</button>
 
-        </section>
+    </section>
 
-    </main>
-    <script src="Script.js"></script>
+  </main>
+  <script src="script.js"></script>
 </body>
 
 </html>
